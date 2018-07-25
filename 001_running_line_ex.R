@@ -8,14 +8,14 @@ library(gifski)
 # Select sample dataset ---------------------------------------------------
 
 ds <- read_csv2("fault_wave.csv")
-## rename the columns
-names(ds) <- c("start","end",
-               "I1_min","I1_max",
-               "I2_min","I2_max",
-               "I3_min","I3_max",
-               "U12_min","U12_max",
-               "U23_min","U23_max",
-               "U31_min","U31_max")
+# ## rename the columns
+# names(ds) <- c("start","end",
+#                "I1_min","I1_max",
+#                "I2_min","I2_max",
+#                "I3_min","I3_max",
+#                "U12_min","U12_max",
+#                "U23_min","U23_max",
+#                "U31_min","U31_max")
 
 ## gather the columns
 
