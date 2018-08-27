@@ -21,7 +21,7 @@ ds <- read_csv2("fault_wave.csv")
 
 plot_data <- ds %>% 
   select(1,3:length(ds)) %>% 
-  gather(key = "phase", value = measurement, I1_min:U31_max) %>% ## still a bit messy how this works
+  gather(key = "phase", value = measurement, I1_min:U31_max) %>% ## 
   separate(phase, c("phase","meas_type"), sep = "_") %>% ## separating phase and measurement types (min/max)
   spread(key = meas_type, value = measurement) %>% ## spreading min max measurements
   mutate(plot_type = ifelse(str_detect(phase,"I") == TRUE, "current","voltage")) %>% ## separating current and voltage measurements
@@ -52,7 +52,7 @@ for (row in 1:nrow(ds)){
   }
     
   # print(tmp_plot)
-  ggsave(filename = paste0("gif_output/image_",tmp_row,".png"), plot = tmp_plot, width = 8, height = 4.5, dpi = 72)
+  ggsave(filename = paste0("gif_output/image_",tmp_row,".png"), plot = tmp_plot, width = 8, height = 4.5, dpi = 288)
   print(paste0(row,"/",nrow(ds)))
 }
 
@@ -90,7 +90,7 @@ for (row in 1:nrow(ds)){
   }
   
   # print(tmp_plot)
-  ggsave(filename = paste0("gif_output/test/image_",tmp_row,".png"), plot = tmp_plot, width = 8, height = 4.5, dpi = 72)
+  ggsave(filename = paste0("gif_output/test/image_",tmp_row,".png"), plot = tmp_plot, width = 8, height = 4.5, dpi = 288)
   print(paste0(row,"/",nrow(ds)))
 }
 
